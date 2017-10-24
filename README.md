@@ -1,4 +1,4 @@
-# Go by Example
+# Learn Go by Example
 
 例子来源于[Go by Example](https://gobyexample.com)。在此基础上，加上
 
