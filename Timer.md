@@ -21,11 +21,12 @@ func main() {
 	// 使用Timer 比 time.Sleep 的好处是你能在计时器到期之前，取消计时器
 	time2 := time.NewTimer(time.Second)
 	go func(){
-		<-timer2.C
+		<-timer2.C  // 在 time2 还没有被到期之前，它就被停止了
 		fmt.Println("Timer 2 expired")
 	}()
 
-	stop2 := time2.Stop() // 停止计时器，返回值可以判断计时器是到期了，还是被stop了。 如果此次调用停止了timer，则返回true，如果已经到期或者已经被停止了返回 false 
+	stop2 := time2.Stop() //停止计时器，返回值可以判断计时器是到期了，还是被stop了
+	//如果此次调用停止了timer，则返回true，如果已经到期或者已经被停止了返回 false
 	if stop2 {
 		fmt.Println("Timer 2 stopped")
 	}//否则已经到期了
